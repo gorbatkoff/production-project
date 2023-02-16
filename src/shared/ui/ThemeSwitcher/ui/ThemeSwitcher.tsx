@@ -3,6 +3,7 @@ import {classNames} from "shared/lib/classNames/classNames";
 
 import SwitcherButtonDark from 'shared/assets/images/SwitherButtonDark.svg';
 import SwitcherButton from 'shared/assets/images/SwitherButton.svg';
+import IconThemeSwitcher from 'shared/assets/images/IconThemeSwitcher.svg';
 
 import styles from './ThemeSwitcher.module.scss'
 import {Button, ThemeButton} from "shared/ui/Button/Button";
@@ -22,9 +23,9 @@ export const ThemeSwitcher = ({className}: ThemeSwitcherProps) => {
         >
             {theme === Theme.DARK
                 ?
-                <SwitcherButtonDark/>
+                <IconThemeSwitcher fill='#fff'/>
                 :
-                <SwitcherButton/>
+                <IconThemeSwitcher fill='#fa0'/>
             }
         </Button>
     );

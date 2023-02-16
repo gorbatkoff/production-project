@@ -12,6 +12,26 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
         use: ['@svgr/webpack'],
     }
 
+    const babelLoader = {
+        test: /\.(js|jsx|tsx)$/,
+        exclude: /node_modules/,
+        use: {
+            loader: "babel-loader",
+            options: {
+                presets: ['@babel/preset-env'],
+                "plugins": [
+                    [
+                        "i18next-extract",
+                        {
+                            locales: ['ru', 'en'],
+                            keyAsDefaultValue: true
+                        }
+                    ],
+                ]
+            }
+        }
+    }
+
     const typescriptLoader = {
         test: /\.tsx?$/, // регул-ка файлов которые надо пропустить через лоадер
         use: 'ts-loader',
@@ -50,9 +70,10 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
     /* Порядок при котором лоадеры возвращаются в массиве имеют значение */
 
     return [ // Тут идёт обработка файлов, которые выходят за рамки JS (.jpeg, .css, .ts, etc.)
+        fileLoader,
+        svgLoader,
+        babelLoader,
         typescriptLoader,
         cssLoader,
-        svgLoader,
-        fileLoader
     ]
 }

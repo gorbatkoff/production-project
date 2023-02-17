@@ -1,19 +1,19 @@
-import {Theme, useTheme} from "app/providers/ThemeProvider";
-import {classNames} from "shared/lib/classNames/classNames";
+import {Theme, useTheme} from "app/providers/ThemeProvider"
+import {classNames} from "shared/lib/classNames/classNames"
 
-import SwitcherButtonDark from 'shared/assets/images/SwitherButtonDark.svg';
-import SwitcherButton from 'shared/assets/images/SwitherButton.svg';
-import IconThemeSwitcher from 'shared/assets/images/IconThemeSwitcher.svg';
+import SwitcherButtonDark from "shared/assets/images/SwitherButtonDark.svg"
+import SwitcherButton from "shared/assets/images/SwitherButton.svg"
+import IconThemeSwitcher from "shared/assets/images/IconThemeSwitcher.svg"
 
-import styles from './ThemeSwitcher.module.scss'
-import {Button, ThemeButton} from "shared/ui/Button/Button";
+import styles from "./ThemeSwitcher.module.scss"
+import {Button, ThemeButton} from "shared/ui/Button/Button"
 
-interface ThemeSwitcherProps {
-    className?: string
-}
+type ThemeSwitcherProps = {
+	className?: string;
+};
 
 export const ThemeSwitcher = ({className}: ThemeSwitcherProps) => {
-    const {theme, toggleTheme} = useTheme();
+    const {theme, toggleTheme} = useTheme()
 
     return (
         <Button
@@ -22,11 +22,9 @@ export const ThemeSwitcher = ({className}: ThemeSwitcherProps) => {
             onClick={toggleTheme}
         >
             {theme === Theme.DARK
-                ?
-                <IconThemeSwitcher fill='#fff'/>
-                :
-                <IconThemeSwitcher fill='#fa0'/>
+                ? <IconThemeSwitcher fill='#fff'/>
+                : <IconThemeSwitcher fill='#fa0'/>
             }
         </Button>
-    );
-};
+    )
+}

@@ -1,8 +1,13 @@
-import {lazy} from 'react';
+import {lazy} from "react"
 
-export const MainPageAsync = lazy(() => new Promise((resolve, reject) => {
-    setTimeout(() => {
+export const MainPageAsync = lazy(async () => new Promise((resolve, reject) => {
+    setTimeout(() =>
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        return resolve(import('./MainPage'))
-    }, 1500)
-}));
+        resolve(import("./MainPage"))
+    }
+    , 1500)
+}))

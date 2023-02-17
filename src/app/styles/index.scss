@@ -5,13 +5,10 @@
 
 .app {
   font: var(--font-m);
-
   background: var(--bg-color);
   color: var(--secondary-color);
-
   min-height: 100vh;
 }
-
 
 .content-page {
   display: flex;
@@ -22,11 +19,11 @@
   padding: 20px;
 }
 
-a{
-  text-decoration: none;;
+a {
+  text-decoration: none;
 }
 
-a:hover{
+a:hover {
   border-bottom: 2px solid darkgray;
 }
 
@@ -37,4 +34,4 @@ button {
   border: 1px solid white;
   padding: 0.3em 1em;
   cursor: pointer;
-}*/
+} */

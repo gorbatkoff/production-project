@@ -2,9 +2,7 @@
   height: calc(100vh - var(--navber-height));
   width: var(--sidebar-width);
   background-color: var(--inverted-bg-color);
-
   position: relative;
-
   transition: width 0.3s;
 }
 
@@ -20,6 +18,6 @@
   width: 100%;
 }
 
-.lang{
+.lang {
   margin-left: 20px;
 }

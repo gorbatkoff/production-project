@@ -6,17 +6,22 @@ module.exports = {
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
+        "plugin:i18next/recommended",
     ],
     "overrides": [],
     "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "module"
+    parserOptions: {
+        ecmaFeatures: {
+            jsx: true,
+        },
+        ecmaVersion: "latest",
+        sourceType: "module",
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "i18next",
     ],
     "rules": {
         "indent": ["error", 4],
@@ -25,7 +30,7 @@ module.exports = {
             "windows"
         ],
         "quotes": [
-            "error",
+            "warn",
             "double",
         ],
         "semi": [
@@ -33,5 +38,6 @@ module.exports = {
             "never"
         ],
         "react/react-in-jsx-scope": "off",
+        "i18next/no-literal-string": ["error", {markupOnly: true}]
     }
 }

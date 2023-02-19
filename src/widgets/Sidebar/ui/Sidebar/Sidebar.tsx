@@ -27,7 +27,7 @@ export const Sidebar = ({className}: SidebarProps) => {
                 [className])}
         >
             <button onClick={onToggle}>
-                {i18n.t("Tagged")}
+                {i18n.t("Свернуть")}
             </button>
 
             <div className={styles.switchers}>

@@ -2,6 +2,7 @@ module.exports = {
     "env": {
         "browser": true,
         "es2021": true,
+        "jest": true,
     },
     "extends": [
         "eslint:recommended",
@@ -34,7 +35,7 @@ module.exports = {
             "double",
         ],
         "semi": [
-            "error",
+            "off",
             "never"
         ],
         "react/react-in-jsx-scope": "off",

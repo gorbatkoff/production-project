@@ -26,8 +26,8 @@ describe("classNames testing", () => {
             ["cls1", "cls2"])).toBe("banner cls1 cls2")
     })
     test("Any values", () => {
-        expect(classNames("banner",
+        expect(classNames("banners",
             {"hover": true, "clicked": true},
-            ["cls1", undefined, null, ""])).toBe("banner cls1 hover clicked")
+            ["cls1", undefined, null, ""])).toBe("banners cls1 hover clicked")
     })
 });

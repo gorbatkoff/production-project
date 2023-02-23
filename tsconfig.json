@@ -6,14 +6,17 @@
     // Это означает лишь, что в подобных ситуациях разработчик должен явно писать any
     "noImplicitAny": true,
     "module": "ESNext",
-    "target": "es5", // Во что по итогу компилируется код
+    "target": "es5",
+    // Во что по итогу компилируется код
     "jsx": "react-jsx",
     // Компилятор будет обрабатывать не только TS файлы, но и JS файлы
     "allowJs": true,
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "*": ["./src/*"]
+      "*": [
+        "./src/*"
+      ]
     },
     // esModuleInterop позволяет работать с пакетами, которые используют common.js
     // как с обычными пакетами с помощью import (require(), module.export) == common.js
@@ -30,4 +33,7 @@
       "module": "CommonJS"
     }
   },
+  "include": [
+    "./config/jest/setupTests.ts"
+  ]
 }

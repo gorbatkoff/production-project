@@ -12,8 +12,6 @@ type SidebarProps = {
 
 export const Sidebar = ({className}: SidebarProps) => {
 
-    const {t, i18n} = useTranslation()
-
     const [collapsed, setCollapsed] = useState(false)
 
     function onToggle() {
@@ -21,13 +19,17 @@ export const Sidebar = ({className}: SidebarProps) => {
     }
 
     return (
-        <div className={
-            classNames(styles.Sidebar,
-                {[styles.collapsed]: collapsed},
-                [className])}
+        <div
+            data-testid="Sidebar"
+            className={
+                classNames(styles.Sidebar,
+                    {[styles.collapsed]: collapsed},
+                    [className])}
         >
-            <button onClick={onToggle}>
-                {i18n.t("Свернуть")}
+            <button
+                data-testid='sidebar-toggle'
+                onClick={onToggle}>
+                Свернуть
             </button>
 
             <div className={styles.switchers}>

@@ -10,7 +10,6 @@ module.exports = {
         "plugin:@typescript-eslint/recommended",
         "plugin:i18next/recommended",
     ],
-    "overrides": [],
     "parser": "@typescript-eslint/parser",
     parserOptions: {
         ecmaFeatures: {
@@ -39,6 +38,20 @@ module.exports = {
             "never"
         ],
         "react/react-in-jsx-scope": "off",
-        "i18next/no-literal-string": ["error", {markupOnly: true}]
-    }
+        "i18next/no-literal-string": ["error", {
+            markupOnly: true,
+            ignoreAttribute: ["data-testid"]
+        }]
+    },
+    globals: {
+        __IS_DEV__: true,
+    },
+    overrides: [ // отключение переводов в тестовых файлах
+        {
+            files: ["**/src/**/*.test.{ts,tsx}"],
+            rules: {
+                "i18next/no-literal-string": "off"
+            }
+        }
+    ]
 }

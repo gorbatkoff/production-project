@@ -1,8 +1,8 @@
 // Эта функция возвращает список лоадеров
 
 import type webpack from "webpack"
-import MiniCssExtractPlugin from "mini-css-extract-plugin"
 import {BuildOptions} from "./types/config"
+import {buildCssLoaders} from "./loaders/buildCssLoaders";
 
 export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
     const svgLoader = {
@@ -37,25 +37,7 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
         exclude: /node_modules/,
     }
 
-    const cssLoader = {
-        test: /\.s[ac]ss$/i,
-        use: [
-            // Creates `style` nodes from JS strings
-            isDev ? "style-loader" : MiniCssExtractPlugin.loader, // /css/ in Build
-            {
-                loader: "css-loader",
-                options: {
-                    modules: {
-                        auto: (resPath: string) => Boolean(resPath.includes(".module.")),
-                        localIdentName: isDev
-                            ? "[path][name]__[local]"
-                            : "[hash:base64:8]",
-                    },
-                },
-            }, // Translates CSS into CommonJS
-            "sass-loader", // Compiles Sass to CSS
-        ],
-    }
+    const cssLoader = buildCssLoaders(isDev);
 
     const fileLoader = {
         test: /\.(png|jpe?g|gif)$/i,

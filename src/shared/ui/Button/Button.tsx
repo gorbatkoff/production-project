@@ -6,6 +6,7 @@ import {ButtonHTMLAttributes, FC} from "react"
 
 export enum ThemeButton {
 	CLEAR = "clear",
+    OUTLINE = "outline",
 }
 
 type ButtonProps = {

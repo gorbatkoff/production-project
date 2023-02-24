@@ -3,6 +3,7 @@ module.exports = {
         "browser": true,
         "es2021": true,
         "jest": true,
+        "node": true,
     },
     "extends": [
         "eslint:recommended",
@@ -40,7 +41,7 @@ module.exports = {
         "react/react-in-jsx-scope": "off",
         "i18next/no-literal-string": ["error", {
             markupOnly: true,
-            ignoreAttribute: ["data-testid"]
+            ignoreAttribute: ["data-testid", "to"]
         }]
     },
     globals: {

@@ -1,5 +1,5 @@
 name: Linting, testing and building
-run-name: ${{ github.actor }}. Production project. Github Actions.
+run-name: ${{ github.actor }}. Production project.
 on:
   push:
     branches: [ main ]

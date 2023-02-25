@@ -3,7 +3,7 @@ import {classNames} from "shared/lib/classNames/classNames"
 
 import IconThemeSwitcher from "shared/assets/images/IconThemeSwitcher.svg"
 
-import {Button, ThemeButton} from "shared/ui/Button/Button"
+import {Button, ButtonTheme} from "shared/ui/Button/Button"
 
 type ThemeSwitcherProps = {
 	className?: string;
@@ -14,7 +14,7 @@ export const ThemeSwitcher = ({className}: ThemeSwitcherProps) => {
 
     return (
         <Button
-            theme={ThemeButton.CLEAR}
+            theme={ButtonTheme.CLEAR}
             className={classNames("", {}, [className])}
             onClick={toggleTheme}
         >

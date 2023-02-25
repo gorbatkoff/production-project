@@ -41,7 +41,8 @@ module.exports = {
             ignoreAttribute: [
                 "data-testid", "to"
             ]
-        }]
+        }],
+        "@typescript-eslint/no-var-requires": "off"
     },
     globals: {
         __IS_DEV__: true,

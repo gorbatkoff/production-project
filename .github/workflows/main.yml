@@ -1,13 +1,30 @@
 name: Linting, testing and building
 run-name: ${{ github.actor }}. Production project. Github Actions.
-on: [push]
+on:
+  push:
+    branches: [ master ]
+  pull_requests:
+    branches: [ master ]
 jobs:
-  check-bats-version:
+  pipeline:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 17.x ]
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v2
+      - name: Staring / Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
-          node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
+          node-version: ${{ matrix.node-version }}
+      - name: install modules
+        run: npm install
+      - name: build production project
+        run: npm run build:prod
+      - name: linting typescript
+        run: npm run lint:ts
+      - name: linting scss
+        run: npm run lint:ts
+      - name: unit testing
+        run: npm run test:unit

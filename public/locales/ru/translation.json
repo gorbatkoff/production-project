@@ -10,5 +10,17 @@
   "Главная": "Главная",
   "О сайте": "О Сайте",
   "Toggle": "Toggle",
-  "Короткое название": "Ru"
+  "Короткое название": "Ru",
+  "Войти": "Войти",
+  "quidem similique veritatis voluptatem": {
+    "": "quidem similique veritatis voluptatem."
+  },
+  "in magnam praesentium provident quaerat repellendus": {
+    " Beatae fuga inventore magni officia officiis quam\n": "in magnam praesentium provident quaerat repellendus. Beatae fuga inventore magni officia officiis quam\\n",
+    " Beatae fuga inventore magni officia officiis quam\n": "in magnam praesentium provident quaerat repellendus. Beatae fuga inventore magni officia officiis quam\\n",
+    " Beatae fuga inventore magni officia officiis quam\n": "in magnam praesentium provident quaerat repellendus. Beatae fuga inventore magni officia officiis quam\\n"
+  },
+  "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
+    " Accusamus aspernatur doloremque fugiat fugit\n": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aspernatur doloremque fugiat fugit\\n"
+  }
 }

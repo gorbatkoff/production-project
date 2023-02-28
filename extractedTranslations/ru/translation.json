@@ -2,11 +2,20 @@
   "Lorem": "Lorem",
   "Tagged": "Tagged",
   "Toggle": "Toggle",
+  "Войти": "Войти",
   "Главная": "Главная",
   "О сайте": "О сайте",
   "Обновить страницу": "Обновить страницу",
   "Произошла непридвиденная ошибка": "Произошла непридвиденная ошибка",
   "Свернуть": "Свернуть",
   "Страница не найдена": "Страница не найдена",
-  "Язык": "Язык"
+  "Язык": "Язык",
+  "in magnam praesentium provident quaerat repellendus": {
+    " Beatae fuga inventore magni officia officiis quam\n": "in magnam praesentium provident quaerat repellendus. Beatae fuga inventore magni officia officiis quam\\n",
+    " Beatae fuga inventore magni officia officiis quam\n": "in magnam praesentium provident quaerat repellendus. Beatae fuga inventore magni officia officiis quam\\n",
+    " Beatae fuga inventore magni officia officiis quam\n": "in magnam praesentium provident quaerat repellendus. Beatae fuga inventore magni officia officiis quam\\n"
+  },
+  "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
+    " Accusamus aspernatur doloremque fugiat fugit\n": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aspernatur doloremque fugiat fugit\\n"
+  }
 }

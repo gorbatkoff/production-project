@@ -23,6 +23,7 @@ module.exports = {
         "react",
         "@typescript-eslint",
         "i18next",
+        "react-hooks",
     ],
     "rules": {
         "indent": ["error", 4],
@@ -42,7 +43,9 @@ module.exports = {
                 "data-testid", "to"
             ]
         }],
-        "@typescript-eslint/no-var-requires": "off"
+        "@typescript-eslint/no-var-requires": "off",
+        "react-hooks/rules-of-hooks": "error", // Проверяем правила хуков
+        "react-hooks/exhaustive-deps": "error" // Проверяем зависимости эффекта
     },
     globals: {
         __IS_DEV__: true,

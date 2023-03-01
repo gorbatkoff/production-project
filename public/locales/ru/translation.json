@@ -22,5 +22,7 @@
   },
   "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
     " Accusamus aspernatur doloremque fugiat fugit\n": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aspernatur doloremque fugiat fugit\\n"
-  }
+  },
+  "Increment": "Increment",
+  "Decrement": "Decrement"
 }

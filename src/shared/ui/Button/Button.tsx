@@ -3,6 +3,7 @@ import {classNames} from "shared/lib/classNames/classNames"
 import styles from "./Button.module.scss";
 
 import {ButtonHTMLAttributes, FC} from "react"
+import {Theme, ThemeProvider} from "app/providers/ThemeProvider";
 
 export enum ButtonTheme {
     CLEAR = "clear",
@@ -29,7 +30,7 @@ export const Button: FC<ButtonProps> = props => {
     const {
         className,
         children,
-        theme,
+        theme = ButtonTheme.OUTLINE,
         square,
         size = ButtonSize.M, // по дефолту ставим M
         ...otherProps

@@ -1,4 +1,6 @@
 {
+  "Decrement": "Decrement",
+  "Increment": "Increment",
   "Lorem": "Lorem",
   "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
     " Accusamus aspernatur doloremque fugiat fugit\n": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aspernatur doloremque fugiat fugit\\n"
@@ -15,7 +17,5 @@
   "Произошла непридвиденная ошибка": "Произошла непридвиденная ошибка",
   "Свернуть": "Свернуть",
   "Страница не найдена": "Страница не найдена",
-  "Язык": "Язык",
-  "Increment": "Increment",
-  "Decrement": "Decrement"
+  "Язык": "Язык"
 }

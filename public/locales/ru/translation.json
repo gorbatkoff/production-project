@@ -15,14 +15,8 @@
   "quidem similique veritatis voluptatem": {
     "": "quidem similique veritatis voluptatem."
   },
-  "in magnam praesentium provident quaerat repellendus": {
-    " Beatae fuga inventore magni officia officiis quam\n": "in magnam praesentium provident quaerat repellendus. Beatae fuga inventore magni officia officiis quam\\n",
-    " Beatae fuga inventore magni officia officiis quam\n": "in magnam praesentium provident quaerat repellendus. Beatae fuga inventore magni officia officiis quam\\n",
-    " Beatae fuga inventore magni officia officiis quam\n": "in magnam praesentium provident quaerat repellendus. Beatae fuga inventore magni officia officiis quam\\n"
-  },
-  "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
-    " Accusamus aspernatur doloremque fugiat fugit\n": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aspernatur doloremque fugiat fugit\\n"
-  },
   "Increment": "Increment",
-  "Decrement": "Decrement"
+  "Decrement": "Decrement",
+  "Введите username": "Введите username",
+  "Введите пароль": "Введите пароль"
 }

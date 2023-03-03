@@ -1,0 +1,17 @@
+.InputWrapper{
+  display: flex;
+}
+
+.placeholder {
+  margin-right: 5px;
+}
+
+.Input{
+  background: transparent;
+  border-bottom: 2.5px solid var(--primary-color);
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  color: var(--primary-color);
+  outline: none;
+}

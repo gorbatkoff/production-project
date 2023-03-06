@@ -3,7 +3,6 @@ import {classNames} from "shared/lib/classNames/classNames"
 import styles from "./Button.module.scss";
 
 import {ButtonHTMLAttributes, FC} from "react"
-import {Theme, ThemeProvider} from "app/providers/ThemeProvider";
 
 export enum ButtonTheme {
     CLEAR = "clear",
@@ -24,6 +23,7 @@ type ButtonProps = {
     theme?: ButtonTheme;
     square?: boolean;
     size?: ButtonSize;
+    disabled?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button: FC<ButtonProps> = props => {
@@ -33,6 +33,7 @@ export const Button: FC<ButtonProps> = props => {
         theme = ButtonTheme.OUTLINE,
         square,
         size = ButtonSize.M, // по дефолту ставим M
+        disabled,
         ...otherProps
     } = props;
 
@@ -40,11 +41,13 @@ export const Button: FC<ButtonProps> = props => {
         [styles[theme]]: true,
         [styles.square]: square,
         [styles[size]]: true,
+        [styles.disabled]: disabled
     }
 
     return (
         <button className={classNames(styles.Button, mods, [className, styles[theme]])}
             {...otherProps}
+            disabled={disabled}
         >
             {children}
         </button>

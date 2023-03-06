@@ -16,6 +16,14 @@ export default {
 
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
 
+export const NotAuthLight = Template.bind({});
+NotAuthLight.args = {};
+NotAuthLight.decorators = [StoreDecorator({})];
+
+export const NotAuthDark = Template.bind({});
+NotAuthDark.args = {};
+NotAuthDark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];
+
 export const Light = Template.bind({});
 Light.args = {};
 Light.decorators = [StoreDecorator({

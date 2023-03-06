@@ -11,7 +11,9 @@ export default ({config}: { config: webpack.Configuration }) => {
         html: "",
         src: path.resolve(__dirname, "..", "..", "src")
     }
+    // UNSHIFT (BUG OF STORYBOOK)
     config.resolve.modules.unshift(paths.src);
+    // UNSHIFT (BUG OF STORYBOOK)
     config.resolve.extensions.push(".ts", ".tsx");
 
     config.module.rules = config.module.rules.map((rule: RuleSetRule) => {

@@ -14,7 +14,7 @@ import {Text, TextTheme} from "shared/ui/Text/Text";
 import {getLoginUsername} from "../../model/selectors/getLoginUsername/getLoginUsername";
 import {getLoginPassword} from "../../model/selectors/getLoginPassword/getLoginPassword";
 import {getLoginIsLoading} from "../../model/selectors/getLoginIsLoading/getLoginIsLoading";
-import {getLoginerror} from "../../model/selectors/getLoginError/getLoginError";
+import {getLogiError} from "../../model/selectors/getLoginError/getLoginError";
 import {DynamicModuleLoader, ReducersList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
 export interface LoginFormProps {
@@ -33,7 +33,7 @@ const LoginForm = memo(({className}: LoginFormProps) => {
     const username = useSelector(getLoginUsername)
     const password = useSelector(getLoginPassword)
     const isLoading = useSelector(getLoginIsLoading)
-    const error = useSelector(getLoginerror)
+    const error = useSelector(getLogiError)
 
     const onChangeUsername = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value))

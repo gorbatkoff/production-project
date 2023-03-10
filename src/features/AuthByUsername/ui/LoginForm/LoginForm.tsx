@@ -5,22 +5,35 @@ import styles from "./LoginForm.module.scss";
 import {Button} from "shared/ui/Button/Button";
 import {Input} from "shared/ui/Input/Input";
 import {useDispatch, useSelector} from "react-redux";
-import {loginActions} from "../../model/slice/loginSlice";
+import {loginActions, loginReducer} from "../../model/slice/loginSlice";
 import {memo, useCallback} from "react";
-import {getLoginState} from "../../model/selectors/getLoginState/getLoginState";
 import {loginByUsername} from "../../model/services/loginByUsername/loginByUsername";
 import {Text, TextTheme} from "shared/ui/Text/Text";
 
-interface LoginFormProps {
+// Selectors
+import {getLoginUsername} from "../../model/selectors/getLoginUsername/getLoginUsername";
+import {getLoginPassword} from "../../model/selectors/getLoginPassword/getLoginPassword";
+import {getLoginIsLoading} from "../../model/selectors/getLoginIsLoading/getLoginIsLoading";
+import {getLoginerror} from "../../model/selectors/getLoginError/getLoginError";
+import {DynamicModuleLoader, ReducersList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+
+export interface LoginFormProps {
     className?: string
 }
 
-export const LoginForm = memo(({className}: LoginFormProps) => {
+const initialReducers: ReducersList = {
+    loginForm: loginReducer
+}
+
+const LoginForm = memo(({className}: LoginFormProps) => {
 
     const {t} = useTranslation();
-
     const dispatch = useDispatch();
-    const {username, password, error, isLoading} = useSelector(getLoginState)
+
+    const username = useSelector(getLoginUsername)
+    const password = useSelector(getLoginPassword)
+    const isLoading = useSelector(getLoginIsLoading)
+    const error = useSelector(getLoginerror)
 
     const onChangeUsername = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value))
@@ -35,35 +48,42 @@ export const LoginForm = memo(({className}: LoginFormProps) => {
     }, [dispatch, username, password])
 
     return (
-        <div className={classNames(styles.LoginForm, {}, [className])}>
+        <DynamicModuleLoader
+            removeAfterUnmount={false}
+            reducers={initialReducers}
+        >
+            <div className={classNames(styles.LoginForm, {}, [className])}>
 
-            <Text title="Форма авторизации"/>
+                <Text title="Форма авторизации"/>
 
-            {error && <Text theme={TextTheme.ERROR} description={error}/>}
+                {error && <Text theme={TextTheme.ERROR} description={error}/>}
 
-            <Input
-                placeholder={t("Введите username")}
-                type="text"
-                className={styles.input}
-                onChange={onChangeUsername}
-                value={username}
-            />
+                <Input
+                    placeholder={t("Введите username")}
+                    type="text"
+                    className={styles.input}
+                    onChange={onChangeUsername}
+                    value={username}
+                />
 
-            <Input
-                placeholder={t("Введите пароль")}
-                type="text"
-                className={styles.input}
-                onChange={onChangePassword}
-                value={password}
-            />
+                <Input
+                    placeholder={t("Введите пароль")}
+                    type="text"
+                    className={styles.input}
+                    onChange={onChangePassword}
+                    value={password}
+                />
 
-            <Button
-                className={styles.loginBtn}
-                onClick={onLoginClick}
-                disabled={isLoading}
-            >
-                {t("Войти")}
-            </Button>
-        </div>
+                <Button
+                    className={styles.loginBtn}
+                    onClick={onLoginClick}
+                    disabled={isLoading}
+                >
+                    {t("Войти")}
+                </Button>
+            </div>
+        </DynamicModuleLoader>
     );
 })
+
+export default LoginForm;

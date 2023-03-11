@@ -31,6 +31,13 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "first": "Артём",
+    "lastname": "Горбатков",
+    "age": "20",
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Taganrog",
+    "username": "admin",
+    "avatar": "https://tv.pgtrk.com/sites/default/files/56ab1a3e9175f.jpg"
   }
 }

@@ -1,7 +1,7 @@
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames, Mods} from "shared/lib/classNames/classNames";
 
 import styles from "./Modal.module.scss";
-import React, {ReactNode, useCallback, useEffect, useRef, useState} from "react";
+import React, {MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState} from "react";
 import {Portal} from "shared/ui/Portal/Portal";
 import {useTheme} from "app/providers/ThemeProvider";
 
@@ -26,8 +26,8 @@ export const Modal = (props: ModalProps) => {
     } = props;
 
     const [isClosing, setIsClosing] = useState(false);
-    const timerRef = useRef<ReturnType<typeof setTimeout>>();
     const [isMounted, setIsMounted] = useState(false);
+    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
     const {theme} = useTheme()
 
     useEffect(() => {
@@ -57,11 +57,6 @@ export const Modal = (props: ModalProps) => {
         e.stopPropagation();
     }
 
-    const mods: Record<string, boolean> = {
-        [styles.opened]: isOpen,
-        [styles.isClosing]: isClosing,
-    }
-
     useEffect(() => {
 
         if (isOpen) {
@@ -73,6 +68,11 @@ export const Modal = (props: ModalProps) => {
             window.removeEventListener("keydown", onKeyDown)
         }
     }, [isOpen, onKeyDown])
+
+    const mods: Mods = {
+        [styles.opened]: isOpen,
+        [styles.isClosing]: isClosing,
+    }
 
     if (lazy && !isMounted) {
         return null;

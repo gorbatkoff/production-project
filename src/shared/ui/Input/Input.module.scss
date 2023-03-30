@@ -7,11 +7,12 @@
 }
 
 .Input {
-  background: transparent;
-  border-bottom: 2.5px solid var(--primary-color);
-  border-top: transparent;
-  border-left: transparent;
-  border-right: transparent;
+  background: none;
+  border: none;
   color: var(--primary-color);
   outline: none;
+}
+
+.readonly {
+  opacity: 0.7;
 }

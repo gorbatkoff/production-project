@@ -1,4 +1,4 @@
-import {classNames} from "shared/lib/classNames/classNames"
+import {classNames, Mods} from "shared/lib/classNames/classNames"
 
 import styles from "./Button.module.scss";
 
@@ -8,6 +8,7 @@ export enum ButtonTheme {
     CLEAR = "clear",
     CLEAR_INVERTED = "clearInverted",
     OUTLINE = "outline",
+    WARNING = "warning",
     BACKGROUND = "background",
     BACKGROUND_INVERTED = "backgroundInverted",
 }
@@ -38,7 +39,9 @@ export const Button = memo((props: ButtonProps) => {
         ...otherProps
     } = props;
 
-    const mods: Record<string, boolean> = {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const mods: Mods = {
         [styles[theme]]: true,
         [styles.square]: square,
         [styles[size]]: true,

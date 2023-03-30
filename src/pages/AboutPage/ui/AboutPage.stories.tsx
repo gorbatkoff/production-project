@@ -14,7 +14,7 @@ export default {
 } as ComponentMeta<typeof AboutPage>;
 
 //args has been deleted in next line
-const Template: ComponentStory<typeof AboutPage> = (args) => <AboutPage/>;
+const Template: ComponentStory<typeof AboutPage> = () => <AboutPage/>;
 
 export const Normal = Template.bind({});
 Normal.args = {};

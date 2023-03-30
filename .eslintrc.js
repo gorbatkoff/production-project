@@ -37,7 +37,7 @@ module.exports = {
             "never"
         ],
         "react/react-in-jsx-scope": "off",
-        "i18next/no-literal-string": ["error", {
+        "i18next/no-literal-string": ["warn", {
             markupOnly: true,
             ignoreAttribute: [
                 "data-testid", "to"
@@ -47,9 +47,11 @@ module.exports = {
         "react-hooks/rules-of-hooks": "error", // Проверяем правила хуков
         "react-hooks/exhaustive-deps": "error", // Проверяем зависимости эффекта
         "react/display-name": "off",
+        "@typescript-eslint/ban-ts-comment": "warn"
     },
     globals: {
         __IS_DEV__: true,
+        __API_URL__: true,
     },
     overrides: [ // отключение переводов в тестовых файлах
         {

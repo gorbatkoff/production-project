@@ -51,7 +51,9 @@ const ProfilePage = memo(({className}: ProfilePageProps) => {
     }
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== "storybook") {
+            dispatch(fetchProfileData());
+        }
     }, [dispatch])
 
     const onChangeFirstname = useCallback((value?: string) => {
@@ -63,7 +65,7 @@ const ProfilePage = memo(({className}: ProfilePageProps) => {
     }, [dispatch])
 
     const onChangeAge = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
+        dispatch(profileActions.updateProfile({age: Number(value || 0)}));
     }, [dispatch]);
 
     const onChangeCity = useCallback((value?: string) => {

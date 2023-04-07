@@ -60,7 +60,6 @@ export const profileSlice = createSlice({
                     state,
                     action: PayloadAction<Profile>
                 ) => {
-
                     state.isLoading = false;
                     state.data = action.payload;
                     state.form = action.payload;

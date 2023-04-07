@@ -1,8 +1,6 @@
 // Здесь вся конфигурация, которую мы делали в корне проекта
 
-import {BuildOptions, BuildPaths} from "./types/config" // Импортируем interface аргументов (options) из конфига
-
-import type webpack from "webpack"
+import {BuildOptions} from "./types/config" // Импортируем interface аргументов (options) из конфига
 import {buildPlugins} from "./buildPlugins"
 import {buildLoaders} from "./buildLoaders"
 import {buildResolvers} from "./buildResolvers"
@@ -10,7 +8,7 @@ import {buildDevServer} from "./buildDevServer"
 
 // В Options у нас mode, paths и isDev, цепляем только paths и mode
 // Затем расставляем их в полях entry и path, а в buildPlugins также передаём options
-export function buildWebpackConfig(options: { mode: "production" | "development"; apiUrl: string; port: number; paths: BuildPaths; isDev: boolean }) {
+export function buildWebpackConfig(options: BuildOptions) {
     const {paths, mode, isDev} = options
 
     return {

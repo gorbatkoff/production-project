@@ -7,7 +7,7 @@ import {Button, ButtonTheme} from "shared/ui/Button/Button"
 import {memo} from "react";
 
 type ThemeSwitcherProps = {
-	className?: string;
+    className?: string;
 };
 
 export const ThemeSwitcher = memo(({className}: ThemeSwitcherProps) => {
@@ -19,9 +19,12 @@ export const ThemeSwitcher = memo(({className}: ThemeSwitcherProps) => {
             className={classNames("", {}, [className])}
             onClick={toggleTheme}
         >
-            {theme === Theme.DARK
+            {(theme === Theme.DARK)
                 ? <IconThemeSwitcher fill='#fff'/>
-                : <IconThemeSwitcher fill='#fa0'/>
+                : (theme === Theme.LIGHT)
+                    ? <IconThemeSwitcher fill='#fa0'/>
+                    :
+                    <IconThemeSwitcher fill='#0fe'/>
             }
         </Button>
     )

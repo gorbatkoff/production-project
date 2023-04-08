@@ -22,9 +22,9 @@ export const ThemeSwitcher = memo(({className}: ThemeSwitcherProps) => {
             {(theme === Theme.DARK)
                 ? <IconThemeSwitcher fill='#fff'/>
                 : (theme === Theme.LIGHT)
-                    ? <IconThemeSwitcher fill='#fa0'/>
+                    ? <IconThemeSwitcher fill='#fff'/>
                     :
-                    <IconThemeSwitcher fill='#0fe'/>
+                    <IconThemeSwitcher fill='#fff'/>
             }
         </Button>
     )

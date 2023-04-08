@@ -5,12 +5,14 @@ import {useTheme} from "./providers/ThemeProvider"
 import {AppRouter} from "./providers/router"
 import {Navbar} from "widgets/Navbar"
 import {Sidebar} from "widgets/Sidebar"
-import {useDispatch} from "react-redux";
-import {userActions} from "entities/User";
+import {useDispatch, useSelector} from "react-redux";
+import {getUserInited, userActions} from "entities/User";
 
 const App = () => {
     const {theme} = useTheme();
     const dispatch = useDispatch();
+
+    const mounted = useSelector(getUserInited);
 
     useEffect(() => {
         dispatch(userActions.initAuthData())
@@ -20,10 +22,9 @@ const App = () => {
         <div className={classNames("app", {}, [theme])}>
             <Suspense fallback='Loading...'>
                 <Navbar/>
-                {/*<button onClick={() => setIsOpen(true)}>toggle</button>*/}
                 <div className='content-page'>
                     <Sidebar/>
-                    <AppRouter/>
+                    {mounted && (<AppRouter/>)}
                 </div>
             </Suspense>
         </div>

@@ -24,7 +24,6 @@ ProfileCardDefault.args = {
         first: "Artem",
         city: "Rostov on Don",
         currency: Currency.EUR,
-        avatar: "https://i.pinimg.com/564x/07/c6/5b/07c65b6f0add6e05a8804473da844bff.jpg"
     }
 };
 

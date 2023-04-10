@@ -1,8 +1,15 @@
 .app_ocean_theme {
   --bg-color: #f4fbfb;
   --inverted-bg-color: #20494a;
-  --primary-color: #20494a;
+  --primary-color: #142e1f;
   --secondary-color: #142e1f;
   --inverted-primary-color: #f4fbfb;
   --inverted-secondary-color: #142e1f;
+
+  // Skeleton
+  --skeleton-color: #20494a;
+  --skeleton-shadow: #20494a;
+
+  // Code
+  --code-bg: #cfcfcf;
 }

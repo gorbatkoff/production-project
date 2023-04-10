@@ -3,6 +3,13 @@
   color: var(--primary-color);
   padding: 6px 15px;
   border-radius: 6px;
+  transition: 0.33s;
+
+  &:hover {
+    opacity: 0.8;
+    fill-opacity: 80%;
+    stroke-opacity: 80%;
+  }
 }
 
 .clear,

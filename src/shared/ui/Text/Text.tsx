@@ -14,12 +14,18 @@ export enum TextAlign {
     LEFT = "left",
 }
 
+export enum TextSize {
+    M = "size_m",
+    L = "size_l",
+}
+
 interface TextProps {
     className?: string,
     title?: string,
     description?: string,
     theme?: TextTheme,
     align?: TextAlign;
+    size?: TextSize;
 }
 
 export const Text = memo((props: TextProps) => {
@@ -29,11 +35,19 @@ export const Text = memo((props: TextProps) => {
         title,
         description,
         theme = TextTheme.PRIMARY,
-        align = TextAlign.LEFT
+        align = TextAlign.LEFT,
+        size = TextSize.M
     } = props
 
+    const addition = [
+        className,
+        styles[theme],
+        styles[align],
+        styles[size],
+    ]
+
     return (
-        <div className={classNames(styles.Text, {}, [className, styles[theme], styles[align]])}>
+        <div className={classNames(styles.Text, {}, [...addition])}>
             {title && <h4 className={styles.title}>{title}</h4>}
             {description && <p className={styles.description}>{description}</p>}
         </div>

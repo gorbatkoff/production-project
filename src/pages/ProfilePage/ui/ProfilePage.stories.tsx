@@ -29,6 +29,7 @@ Normal.decorators = [StoreDecorator({
             first: "asd",
             city: "asf",
             currency: Currency.USD,
+            avatar: "https://yt3.ggpht.com/ytc/AMLnZu_KRgmmelcXZd7TMpWDrgHUWUQL4gxDbYFTqp9q=s900-c-k-c0x00ffffff-no-rj"
         },
     },
 })];
@@ -45,6 +46,7 @@ Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
             first: "asd",
             city: "asf",
             currency: Currency.USD,
+            avatar: "https://yt3.ggpht.com/ytc/AMLnZu_KRgmmelcXZd7TMpWDrgHUWUQL4gxDbYFTqp9q=s900-c-k-c0x00ffffff-no-rj"
         },
     },
 })];

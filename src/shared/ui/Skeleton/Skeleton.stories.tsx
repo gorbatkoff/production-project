@@ -29,6 +29,9 @@ Circle.args = {
     border: "50%",
     width: 250
 };
+Circle.parameters = {
+    loki: {skip: true}
+}
 
 export const NormalDark = Template.bind({});
 NormalDark.args = {

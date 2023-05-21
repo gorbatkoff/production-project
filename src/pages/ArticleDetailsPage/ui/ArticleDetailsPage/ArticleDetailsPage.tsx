@@ -1,4 +1,4 @@
-import {memo} from "react";
+import {memo, useCallback} from "react";
 import {classNames} from "shared/lib/classNames/classNames";
 import {useTranslation} from "react-i18next";
 import {ArticleDetails} from "entities/Article";
@@ -12,7 +12,9 @@ import {articleDetailsCommentsReducer, getArticleComments} from "../../model/sli
 import {useDispatch, useSelector} from "react-redux";
 import {getArticleCommentsError, getArticleCommentsIsLoading} from "../../model/selectors/comments";
 import {useInitialEffect} from "shared/lib/hooks/useInitialEffect/useInitialEffect";
-import {fetchCommentsByArticleId} from "pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import {fetchCommentsByArticleId} from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import AddCommentForm from "features/addCommentForm/ui/AddCommentForm/AddCommentForm";
+import {addCommentForArticle} from "../../model/services/addCommentForArticle/addCommentForArticle";
 
 interface ArticleDetailsPageProps {
     className?: string
@@ -32,6 +34,10 @@ const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
     const commentsError = useSelector(getArticleCommentsError)
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading)
 
+    const onSendComment = useCallback((text: string) => {
+        dispatch(addCommentForArticle(text));
+    }, [dispatch])
+
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id))
     })
@@ -49,7 +55,8 @@ const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
             <div className={classNames(styles.ArticleDetailsPage, {}, [className])}>
                 <ArticleDetails id={id}/>
                 <Text title={t("Комментарии")} className={styles.commentTitle}/>
-                <CommentList isLoading={commentsIsLoading} comments={comments} />
+                <AddCommentForm onSendComment={onSendComment}/>
+                <CommentList isLoading={commentsIsLoading} comments={comments}/>
             </div>
         </DynamicModuleLoader>
     );

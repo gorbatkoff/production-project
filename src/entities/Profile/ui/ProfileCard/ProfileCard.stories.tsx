@@ -3,6 +3,7 @@ import {ComponentMeta, ComponentStory} from "@storybook/react";
 import {ProfileCard} from "./ProfileCard";
 import {Country} from "entities/Country";
 import {Currency} from "entities/Currency";
+import {Primary} from "shared/ui/Select/Select.stories";
 
 export default {
     title: "entities/ProfileCard",
@@ -27,6 +28,7 @@ ProfileCardDefault.args = {
         avatar: "https://yt3.ggpht.com/ytc/AMLnZu_KRgmmelcXZd7TMpWDrgHUWUQL4gxDbYFTqp9q=s900-c-k-c0x00ffffff-no-rj"
     },
 };
+ProfileCardDefault.parameters = {loki: {skip: true}}
 
 export const withError = Template.bind({});
 withError.args = {

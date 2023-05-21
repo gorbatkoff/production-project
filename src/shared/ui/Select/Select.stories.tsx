@@ -1,6 +1,7 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { Select } from "shared/ui/Select/Select";
+import {Normal} from "pages/ProfilePage/ui/ProfilePage.stories";
 
 export default {
     title: "shared/Select",

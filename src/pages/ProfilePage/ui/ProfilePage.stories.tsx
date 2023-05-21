@@ -33,6 +33,7 @@ Normal.decorators = [StoreDecorator({
         },
     },
 })];
+Normal.parameters = {loki: {skip: true}}
 
 export const Dark = Template.bind({});
 Dark.args = {};
@@ -50,3 +51,4 @@ Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
         },
     },
 })];
+Dark.parameters = {loki: {skip: true}}

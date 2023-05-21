@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,90 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "article": "1",
+      "userId": "1",
+      "text": "Hello world",
+      "id": "M8YdQgN"
+    },
+    {
+      "article": "1",
+      "userId": "1",
+      "text": "123123",
+      "id": "0TIoJkm"
+    },
+    {
+      "article": "1",
+      "userId": "1",
+      "text": "123123123",
+      "id": "b2ce3pD"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "123123123",
+      "id": "VY0igBd"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Всем привет! Как у вас дела?",
+      "id": "InjJYAN"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "123123123123",
+      "id": "y4pKvLw"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "123123123",
+      "id": "kGsFXRb"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "123123",
+      "id": "cLEKnD4"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "123123123",
+      "id": "h_oMRiv"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "X Y Z",
+      "id": "fxqDpTd"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "1",
+      "id": "SRmXIBW"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "123123",
+      "id": "uPh-bUD"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "123123123",
+      "id": "viC1iND"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Hello Мир, манера крутит мир",
+      "id": "E6N75mh"
     }
   ],
   "users": [
@@ -115,17 +201,31 @@
       "username": "user",
       "password": "123",
       "role": "USER",
-      "avatar": "https://i.pinimg.com/564x/07/c6/5b/07c65b6f0add6e05a8804473da844bff.jpg"
+      "avatar": "https://i.pinimg.com/564x/40/e4/f2/40e4f222740a74b3a284a900e3fdeead.jpg"
     }
   ],
-  "profile": {
-    "first": "Artem",
-    "lastname": "Горбатков",
-    "age": "20",
-    "currency": "RUB",
-    "country": "Armenia",
-    "city": "Taganrog",
-    "username": "admin",
-    "avatar": "https://i.pinimg.com/564x/07/c6/5b/07c65b6f0add6e05a8804473da844bff.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Artem",
+      "lastname": "Горбатков",
+      "age": "20",
+      "currency": "RUB",
+      "country": "Armenia",
+      "city": "Taganrog",
+      "username": "admin",
+      "avatar": "https://i.pinimg.com/564x/07/c6/5b/07c65b6f0add6e05a8804473da844bff.jpg"
+    },
+    {
+      "id": "2",
+      "first": "Artem",
+      "lastname": "Gorbatkov",
+      "age": "20",
+      "currency": "RUB",
+      "country": "Armenia",
+      "city": "Taganrog",
+      "username": "gorbatkoff",
+      "avatar": "https://i.pinimg.com/564x/40/e4/f2/40e4f222740a74b3a284a900e3fdeead.jpg"
+    }
+  ]
 }

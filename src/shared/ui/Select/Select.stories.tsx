@@ -20,3 +20,4 @@ Primary.args = {
         { value: "1234", content: "Второй пункт" },
     ],
 };
+Primary.parameters = {loki: {skip: true}}

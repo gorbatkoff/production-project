@@ -9,6 +9,6 @@ export const ArticleDetailsPageAsync = lazy(async () => new Promise((resolve, re
         // @ts-ignore
         resolve(import("./ArticleDetailsPage"))
     }
-    , 1500)
+    , 400)
 }))
 

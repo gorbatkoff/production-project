@@ -1,9 +1,19 @@
 import {classNames} from "shared/lib/classNames/classNames";
-import {useTranslation} from "react-i18next";
 
 import styles from "./ArticlesPage.module.scss";
 import {memo} from "react";
-import {Article, ArticleList, ArticleView} from "entities/Article";
+import {Article, ArticleList, ArticleView, ArticleViewSelector} from "entities/Article";
+import {DynamicModuleLoader, ReducersList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import {articlePageActions, articlePageReducer, getArticles} from "../../model/slice/articlePageSlice";
+import {useInitialEffect} from "shared/lib/hooks/useInitialEffect/useInitialEffect";
+import {useSelector} from "react-redux";
+import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {fetchArticlesList} from "pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList";
+import {
+    getArticlePageError,
+    getArticlePageIsLoading,
+    getArticlePageView
+} from "pages/ArticlesPage/model/selectors/articlesPageSelectors";
 
 interface ArticlesPageProps {
     className?: string
@@ -16,7 +26,7 @@ export const article = {
     "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
     "views": 1022,
     "createdAt": "26.02.2022",
-    "user" : {
+    "user": {
         "id": "1",
         "username": "admin",
         "avatar": "https://i.pinimg.com/564x/40/e4/f2/40e4f222740a74b3a284a900e3fdeead.jpg"
@@ -89,24 +99,41 @@ export const article = {
     ]
 } as Article
 
+const reducers: ReducersList = {
+    articlePage: articlePageReducer
+}
+
 const ArticlesPage = ({className}: ArticlesPageProps) => {
 
-    const {t} = useTranslation();
+    const dispatch = useAppDispatch();
+
+    // Получаем статьи используя Entity Adapter
+    const articles = useSelector(getArticles.selectAll);
+    // Диспатчим получение списка статей
+    useInitialEffect(() => {
+        dispatch(fetchArticlesList())
+        dispatch(articlePageActions.initState())
+    })
+
+    const onChangeView = (view: ArticleView) => {
+        dispatch(articlePageActions.setView(view))
+    }
+
+    const isLoading = useSelector(getArticlePageIsLoading);
+    const error = useSelector(getArticlePageError);
+    const view = useSelector(getArticlePageView);
 
     return (
-        <div className={classNames(styles.ArticlesPage, {}, [className])}>
-            <ArticleList
-                // isLoading
-                view={ArticleView.LIST}
-                articles={new Array(16)
-                    .fill(0)
-                    .map((item, index) => ({
-                        ...article,
-                        id: String(index),
-                    }))
-                }
-            />
-        </div>
+        <DynamicModuleLoader reducers={reducers}>
+            <div className={classNames(styles.ArticlesPage, {}, [className])}>
+                <ArticleViewSelector view={view} onViewClick={onChangeView}/>
+                <ArticleList
+                    isLoading={isLoading}
+                    view={view}
+                    articles={articles}
+                />
+            </div>
+        </DynamicModuleLoader>
     );
 };
 

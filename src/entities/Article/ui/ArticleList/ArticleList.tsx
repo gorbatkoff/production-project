@@ -29,7 +29,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         return new Array(view === ArticleView.TILE ? 9 : 9)
             .fill(0)
             .map((item, index) => (
-                <ArticleListItemSkeleton view={view} key={index}/>
+                <ArticleListItemSkeleton className={styles.card} key={index} view={view} />
             ))
     }
 

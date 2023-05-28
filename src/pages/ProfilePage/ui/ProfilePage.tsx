@@ -21,6 +21,7 @@ import {Country} from "entities/Country";
 import {Text, TextTheme} from "shared/ui/Text/Text";
 import {useInitialEffect} from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import {useParams} from "react-router-dom";
+import {Page} from "shared/ui/Page/Page";
 
 
 const reducers: ReducersList = {
@@ -95,30 +96,32 @@ const ProfilePage = memo(({className}: ProfilePageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <ProfilePageHeader/>
+            <Page>
+                <ProfilePageHeader/>
 
-            {validateErrors?.length && validateErrors.map((err) => (
-                <Text
-                    key={err}
-                    theme={TextTheme.ERROR}
-                    description={validateErrorsTranslate[err]}
+                {validateErrors?.length && validateErrors.map((err) => (
+                    <Text
+                        key={err}
+                        theme={TextTheme.ERROR}
+                        description={validateErrorsTranslate[err]}
+                    />
+                ))}
+
+                <ProfileCard
+                    data={formData}
+                    isLoading={isLoading}
+                    error={error}
+                    onChangeFirstname={onChangeFirstname}
+                    onChangeLastname={onChangeLastname}
+                    onChangeAge={onChangeAge}
+                    onChangeCity={onChangeCity}
+                    onChangeUsername={onChangeUsername}
+                    onChangeAvatar={onChangeAvatar}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
+                    readonly={readonly}
                 />
-            ))}
-
-            <ProfileCard
-                data={formData}
-                isLoading={isLoading}
-                error={error}
-                onChangeFirstname={onChangeFirstname}
-                onChangeLastname={onChangeLastname}
-                onChangeAge={onChangeAge}
-                onChangeCity={onChangeCity}
-                onChangeUsername={onChangeUsername}
-                onChangeAvatar={onChangeAvatar}
-                onChangeCurrency={onChangeCurrency}
-                onChangeCountry={onChangeCountry}
-                readonly={readonly}
-            />
+            </Page>
         </DynamicModuleLoader>
     );
 })

@@ -15,7 +15,7 @@ export function useInfiniteScroll({ callback, wrapperRef, triggerRef }: UseInfin
 
         if (callback) {
             const options = {
-                root: wrapperElement,
+                root: null,
                 rootMargin: '0px',
                 threshold: 0,
             };

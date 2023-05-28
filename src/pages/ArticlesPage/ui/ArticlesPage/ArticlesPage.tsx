@@ -8,14 +8,14 @@ import {articlePageActions, articlePageReducer, getArticles} from "../../model/s
 import {useInitialEffect} from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import {useSelector} from "react-redux";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {fetchArticlesList} from "../../model/services/fetchArticlesList/fetchArticlesList";
 import {
-    getArticlePageError, getArticlePageHasMore,
-    getArticlePageIsLoading, getArticlePageNum,
+    getArticlePageIsLoading,
+    getArticlePageNum,
     getArticlePageView
 } from "../../model/selectors/articlesPageSelectors";
 import {Page} from "shared/ui/Page/Page";
-import {fetchNextArticlesPage} from "pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage";
+import {fetchNextArticlesPage} from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
+import {initArticlesPage} from "../../model/services/initArticlesPage/initArticlesPage";
 
 interface ArticlesPageProps {
     className?: string
@@ -29,9 +29,7 @@ const ArticlesPage = ({className}: ArticlesPageProps) => {
 
     const dispatch = useAppDispatch();
     const page = useSelector(getArticlePageNum);
-    const hasMore = useSelector(getArticlePageHasMore);
     const isLoading = useSelector(getArticlePageIsLoading);
-    const error = useSelector(getArticlePageError);
     const view = useSelector(getArticlePageView);
 
     const onLoadNextPart = useCallback(() => {
@@ -42,11 +40,7 @@ const ArticlesPage = ({className}: ArticlesPageProps) => {
     const articles = useSelector(getArticles.selectAll);
     // Диспатчим получение списка статей
     useInitialEffect(() => {
-        dispatch(articlePageActions.initState());
-
-        dispatch(fetchArticlesList({
-            page: 1
-        }))
+        dispatch(initArticlesPage())
     })
 
     const onChangeView = (view: ArticleView) => {
@@ -54,7 +48,7 @@ const ArticlesPage = ({className}: ArticlesPageProps) => {
     }
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
                 onScrollEnd={onLoadNextPart}
                 className={classNames(styles.ArticlesPage, {}, [className])}

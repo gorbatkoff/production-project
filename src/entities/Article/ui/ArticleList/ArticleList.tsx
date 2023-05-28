@@ -33,10 +33,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     const {t} = useTranslation();
 
-    const hasMore = useSelector(getArticlePageHasMore) || false;
+    const hasMore = useSelector(getArticlePageHasMore);
 
     const getSkeletons = (view: ArticleView) => {
-        return new Array(view === ArticleView.TILE ? 9 : 3)
+        return new Array(view === ArticleView.TILE ? 16 : 6)
             .fill(0)
             .map((item, index) => (
                 <ArticleListItemSkeleton className={styles.card} key={index} view={view}/>

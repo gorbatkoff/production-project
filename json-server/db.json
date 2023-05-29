@@ -571,6 +571,18 @@
       "userId": "2",
       "text": "Hello Мир, манера крутит мир",
       "id": "E6N75mh"
+    },
+    {
+      "articleId": "17",
+      "userId": "1",
+      "text": "0",
+      "id": "Zq-v63h"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Nice article",
+      "id": "M9eSPBZ"
     }
   ],
   "users": [
@@ -594,7 +606,7 @@
       "id": "1",
       "first": "Artem",
       "lastname": "Gorbatkov",
-      "age": "20",
+      "age": 21,
       "currency": "RUB",
       "country": "Armenia",
       "city": "Taganrog",

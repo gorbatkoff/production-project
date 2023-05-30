@@ -28,7 +28,7 @@ export const article = {
     },
     "type": [
         "IT",
-        "ECONOMIC",
+        "ECONOMICS",
         "SCIENCE",
         "POLITICS",
     ],

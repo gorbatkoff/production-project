@@ -28,7 +28,9 @@ export const Select = memo((props: SelectProps) => {
     } = props;
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        onChange?.(e.target.value)
+        if (onChange) {
+            onChange(e.target.value);
+        }
     }
 
     const optionsList = useMemo(() => {

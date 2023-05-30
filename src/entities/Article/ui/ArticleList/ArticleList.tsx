@@ -1,17 +1,11 @@
 import {memo} from "react";
 import {classNames} from "shared/lib/classNames/classNames";
-import {useTranslation} from "react-i18next";
 
 import styles from "./ArticleList.module.scss";
 import {Article, ArticleView} from "../../model/types/article";
 import {ArticleListItem} from "../../ui/ArticleListItem/ArticleListItem";
 import {ArticleListItemSkeleton} from "../ArticleListItem/ArticleListItemSkeleton";
-import {Button, ButtonTheme} from "shared/ui/Button/Button";
-import {fetchArticlesList} from "pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList";
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {useSelector} from "react-redux";
-import {getArticlePageHasMore} from "pages/ArticlesPage/model/selectors/articlesPageSelectors";
-import {Text} from "shared/ui/Text/Text";
+import {useTranslation} from "react-i18next";
 
 interface ArticleListProps {
     className?: string;
@@ -28,12 +22,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         articles,
         isLoading,
         view = ArticleView.TILE,
-        page,
     } = props;
-
-    const {t} = useTranslation();
-
-    const hasMore = useSelector(getArticlePageHasMore);
 
     const getSkeletons = (view: ArticleView) => {
         return new Array(view === ArticleView.TILE ? 16 : 6)
@@ -54,7 +43,15 @@ export const ArticleList = memo((props: ArticleListProps) => {
         )
     }
 
-    const dispatch = useAppDispatch();
+    const {t} = useTranslation();
+
+    if (!isLoading && !articles.length){
+        return (
+            <div className={classNames(styles.ArticleList, {}, [className, styles[view]])}>
+                <h3>{t("Статьи не найдены")}</h3>
+            </div>
+        )
+    }
 
     return (
         <div className={classNames(styles.ArticleList, {}, [className, styles[view]])}>
@@ -63,18 +60,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 : null
             }
             {isLoading && getSkeletons(view)}
-
-            {hasMore && view !== ArticleView.TILE && (
-                <Button theme={ButtonTheme.BACKGROUND_INVERTED}
-                    onClick={() => {
-                        dispatch(fetchArticlesList({
-                            page: page + 1
-                        }))
-                    }}
-                >
-                    Загрузить ещё
-                </Button>
-            )}
 
         </div>
     );

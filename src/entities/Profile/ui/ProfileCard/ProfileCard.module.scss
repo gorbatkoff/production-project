@@ -5,7 +5,11 @@
 
 .input {
   margin-top: 10px;
-  width: max-content;
+  width: 100%;
+
+  div {
+    width: 150px;
+  }
 }
 
 .loading,

@@ -11,3 +11,5 @@ export {
 } from "./model/types/ArticleDetailsPageRecommendationsSchema"
 
 export {ArticlesDetailsPageSchema} from "./model/types/index"
+
+export {getCanEditArticle} from "./model/selectors/article"

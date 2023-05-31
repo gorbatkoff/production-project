@@ -637,6 +637,12 @@
       "userId": "1",
       "text": "Обожаю экономику. Вчера читал статью про мировой кризис.",
       "id": "PMCArzj"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "I think Ruby is wonderful language for programmers",
+      "id": "cG9g8bs"
     }
   ],
   "users": [

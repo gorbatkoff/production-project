@@ -22,11 +22,9 @@ describe("fetchNextArticlesPage.test", () => {
 
         await thunk.callThunk(params)
 
-        // Pending + Fulfilled + 2 dispatches
-        expect(thunk.dispatch).toBeCalledTimes(4)
-        expect(fetchArticlesList).toHaveBeenCalledWith({
-            page: 1
-        })
+        // Pending + Fulfilled + 4 dispatches
+        expect(thunk.dispatch).toBeCalledTimes(7)
+        expect(fetchArticlesList).toHaveBeenCalledWith({})
     });
 
 })

@@ -1,4 +1,4 @@
-import {memo} from "react";
+import {HTMLAttributeAnchorTarget, memo} from "react";
 import {classNames} from "shared/lib/classNames/classNames";
 
 import styles from "./ArticleList.module.scss";
@@ -12,7 +12,8 @@ interface ArticleListProps {
     articles: Article[];
     isLoading?: boolean;
     view?: ArticleView;
-    page: number;
+    page?: number;
+    target?: HTMLAttributeAnchorTarget
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
@@ -22,6 +23,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         articles,
         isLoading,
         view = ArticleView.TILE,
+        target
     } = props;
 
     const getSkeletons = (view: ArticleView) => {
@@ -39,13 +41,14 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 view={view}
                 className={styles.card}
                 key={article.id}
+                target={target}
             />
         )
     }
 
     const {t} = useTranslation();
 
-    if (!isLoading && !articles.length){
+    if (!isLoading && !articles.length) {
         return (
             <div className={classNames(styles.ArticleList, {}, [className, styles[view]])}>
                 <h3>{t("Статьи не найдены")}</h3>

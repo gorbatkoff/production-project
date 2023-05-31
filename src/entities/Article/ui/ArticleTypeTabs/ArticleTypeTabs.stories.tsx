@@ -4,7 +4,7 @@ import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {ArticleTypeTabs} from "./ArticleTypeTabs";
 
 export default {
-    title: ".../ArticleTypeTabs",
+    title: "entities/Article/ArticleTypeTabs",
     component: ArticleTypeTabs,
     argTypes: {
         backgroundColor: {control: "color"},

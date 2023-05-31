@@ -2,11 +2,11 @@ import React from "react";
 import {ComponentMeta, ComponentStory} from "@storybook/react";
 
 import {ArticleListItem} from "./ArticleListItem";
-import {ArticleView} from "entities/Article";
-import { article } from "../ArticleList/ArticleList.stories";
+import {Article, ArticleView} from "../../model/types/article";
+import { article } from "shared/mockedData/article/article";
 
 export default {
-    title: "entities/ArticleListItem",
+    title: "entities/Article/ArticleListItem",
     component: ArticleListItem,
     argTypes: {
         backgroundColor: {control: "color"},
@@ -18,11 +18,11 @@ const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListI
 export const ListFormat = Template.bind({});
 ListFormat.args = {
     view: ArticleView.LIST,
-    article,
+    article: article as Article
 };
 
 export const TilesFormat = Template.bind({});
 TilesFormat.args = {
     view: ArticleView.TILE,
-    article,
+    article: article as Article
 };

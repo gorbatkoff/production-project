@@ -5,6 +5,8 @@ export type BuildPaths = {
 	build: string; // До папки со сборкой
 	html: string; // До html файла (public)
 	src: string; // Путь до папки с исходным кодом
+	locales: string; // Путь до папки с переводами
+	buildLocales: string; // Путь до папки куда необходимо переместить переводы
 };
 
 export type BuildEnv = {

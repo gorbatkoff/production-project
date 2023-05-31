@@ -11,7 +11,6 @@ import {
 } from "../../selectors/articlesPageSelectors";
 import {addQueryParams} from "shared/lib/url/addQueryParams/addQueryParams";
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface FetchArticlesListProps {
     replace?: boolean;
 }

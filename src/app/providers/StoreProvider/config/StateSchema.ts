@@ -4,9 +4,12 @@ import {LoginSchema} from "features/AuthByUsername";
 import {AnyAction, CombinedState, Dispatch, EnhancedStore, Reducer, ReducersMapObject} from "@reduxjs/toolkit";
 import {ProfileSchema} from "entities/Profile";
 import {AxiosInstance} from "axios";
-import {NavigateOptions, To} from "react-router-dom";
 import {ArticleDetailsSchema} from "entities/Article";
-import {ArticleDetailsCommentsSchema} from "pages/ArticleDetailsPage";
+import {
+    ArticleDetailsCommentsSchema,
+    ArticleDetailsPageRecommendationsSchema,
+    ArticlesDetailsPageSchema
+} from "pages/ArticleDetailsPage";
 import {AddCommentFormSchema} from "features/addCommentForm";
 import {ArticlePageSchema} from "pages/ArticlesPage";
 import {ScrollSaveSchema} from "features/scrollSave/model/types/scrollSave";
@@ -20,9 +23,9 @@ export interface StateSchema {
     profile?: ProfileSchema;
     loginForm?: LoginSchema;
     articleDetails?: ArticleDetailsSchema;
-    articleDetailsComments?: ArticleDetailsCommentsSchema;
     addCommentForm?: AddCommentFormSchema;
     articlePage?: ArticlePageSchema;
+    articlesDetailsPage?: ArticlesDetailsPageSchema; // Сгруппрированный редьюсер
 }
 
 export type StateSchemaKey = keyof StateSchema;

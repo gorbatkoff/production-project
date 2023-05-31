@@ -14,13 +14,12 @@ import {useInitialEffect} from "shared/lib/hooks/useInitialEffect/useInitialEffe
 import {fetchCommentsByArticleId} from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import AddCommentForm from "features/addCommentForm/ui/AddCommentForm/AddCommentForm";
 import {addCommentForArticle} from "../../model/services/addCommentForArticle/addCommentForArticle";
-import {Button, ButtonTheme} from "shared/ui/Button/Button";
-import {RoutePath} from "shared/config/routeConfig/routeConfig";
 import {Page} from "widgets/Page/Page";
 import {getArticleRecommendations} from "../../model/slices/ArticleDetailsPageRecommendationsSlice";
 import {getArticleRecommendationsIsLoading} from "../../model/selectors/recommendations";
 import {fetchArticlesRecommendations} from "../../model/services/fetchArticlesRecommendations/fetchArticlesRecommendations";
 import {articleDetailsPageReducer} from "../../model/slices";
+import {ArticlesDetailsPageHeader} from "../../ui/ArticlesDetailsPageHeader/ArticlesDetailsPageHeader";
 
 interface ArticleDetailsPageProps {
     className?: string
@@ -44,10 +43,6 @@ const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
 
     const navigate = useNavigate();
 
-    const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles)
-    }, [navigate])
-
     const onSendComment = useCallback((text: string) => {
         dispatch(addCommentForArticle(text));
     }, [dispatch])
@@ -68,9 +63,8 @@ const ArticleDetailsPage = ({className}: ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames(styles.ArticleDetailsPage, {}, [className])}>
-                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
-                    {t("Назад к списку")}
-                </Button>
+                <ArticlesDetailsPageHeader />
+
                 <ArticleDetails id={id}/>
 
                 <Text

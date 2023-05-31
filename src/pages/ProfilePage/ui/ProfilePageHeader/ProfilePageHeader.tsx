@@ -21,6 +21,7 @@ export const ProfilePageHeader = ({className}: ProfilePageHeaderProps) => {
     const profileData = useSelector(getProfileData)
 
     const canEdit = authData?.id === profileData?.id;
+    // Если наш id равен id профиля который мы просматриваем -- тогда можно редактировать.
 
     const readonly = useSelector(getProfileReadonly);
     const dispatch = useAppDispatch();

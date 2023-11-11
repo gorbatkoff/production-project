@@ -9,7 +9,9 @@ export default ({config}: { config: webpack.Configuration }) => {
         build: "",
         entry: "",
         html: "",
-        src: path.resolve(__dirname, "..", "..", "src")
+        src: path.resolve(__dirname, "..", "..", "src"),
+        locales: "",
+        buildLocales: ""
     }
     // UNSHIFT (BUG OF STORYBOOK)
     config.resolve?.modules?.unshift(paths.src);

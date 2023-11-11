@@ -12,6 +12,7 @@ export const userSlice = createSlice({
     reducers: {
         setAuthData: (state, action: PayloadAction<User>) => {
             state.authData = action.payload
+            state._mounted = true;
         },
 
         initAuthData: (state) => {

@@ -14,7 +14,13 @@ module.exports = {
         ecmaVersion: "latest",
         sourceType: "module"
     },
-    "plugins": ["react", "@typescript-eslint", "i18next", "react-hooks"],
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "i18next",
+        "react-hooks",
+        "gorbatkoff-plugin"
+    ],
     "rules": {
         "indent": ["error", 4],
         "linebreak-style": "off",
@@ -31,7 +37,8 @@ module.exports = {
         "react-hooks/exhaustive-deps": "error",
         // Проверяем зависимости эффекта
         "react/display-name": "off",
-        "@typescript-eslint/ban-ts-comment": "warn"
+        "@typescript-eslint/ban-ts-comment": "warn",
+        "gorbatkoff-plugin/path-checker": "error"
     },
     globals: {
         __IS_DEV__: true,

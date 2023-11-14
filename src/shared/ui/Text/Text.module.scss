@@ -38,12 +38,22 @@
   text-align: right;
 }
 
+.size_s {
+  .title {
+    font: var(--font-m);
+  }
+
+  .description {
+    font: var(--font-s);
+  }
+}
+
 .size_m {
   .title {
     font: var(--font-l);
   }
 
-  .text {
+  .description {
     font: var(--font-m);
   }
 }
@@ -53,7 +63,7 @@
     font: var(--font-xl);
   }
 
-  .text {
+  .description {
     font: var(--font-l);
   }
 }

@@ -4,7 +4,6 @@ import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {Skeleton} from "./Skeleton";
 import {ThemeDecorator} from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import {Theme} from "app/providers/ThemeProvider";
-import {DarkLoader} from "shared/ui/Loader/Loader.stories";
 
 export default {
     title: "shared/Skeleton",

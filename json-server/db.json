@@ -136,7 +136,7 @@
       "id": "4",
       "title": "Scala news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://developer.worldpay.com/assets/images/articles/access-images/Slide1.PNG",
+      "img": "https://ih1.redbubble.net/image.810605619.5447/st,small,845x845-pad,1000x1000,f8f8f8.u3.jpg",
       "views": 10222,
       "createdAt": "24.01.2022",
       "userId": "1",
@@ -649,6 +649,12 @@
       "userId": "1",
       "text": "Классная статья! Спасибо!",
       "id": "6Z9YNCb"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "Классная статья! Не думал что Scala такой интересный язык!",
+      "id": "nO3Q-a-"
     }
   ],
   "users": [

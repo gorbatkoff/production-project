@@ -1,14 +1,14 @@
-import {classNames} from "shared/lib/classNames/classNames";
+import {useCallback} from "react";
+import {useSelector} from "react-redux";
 import {useTranslation} from "react-i18next";
 
-import styles from "./ProfilePageHeader.module.scss";
 import {Text} from "shared/ui/Text/Text";
-import {Button, ButtonTheme} from "shared/ui/Button/Button";
-import {useSelector} from "react-redux";
-import {getProfileData, getProfileReadonly, profileActions, updateProfileData} from "entities/Profile";
-import {useCallback} from "react";
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {getUserAuthData} from "entities/User";
+import {getProfileData, getProfileReadonly, profileActions, updateProfileData} from "entities/Profile";
+import {classNames} from "shared/lib/classNames/classNames";
+import {Button, ButtonTheme} from "shared/ui/Button/Button";
+import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {HStack} from "shared/ui/Stack/HStack/HStack";
 
 interface ProfilePageHeaderProps {
     className?: string
@@ -39,16 +39,15 @@ export const ProfilePageHeader = ({className}: ProfilePageHeaderProps) => {
     }, [dispatch])
 
     return (
-        <div className={classNames(styles.ProfilePageHeader, {}, [className])}>
+        <HStack max justify="between" className={classNames("", {}, [className])}>
             <Text title={t("Профиль пользователя")}/>
 
             {canEdit && (
-                <div className={styles.btnWrapper}>
+                <>
                     {readonly
                         ?
                         (
                             <Button
-                                className={styles.editBtn}
                                 theme={ButtonTheme.BACKGROUND_INVERTED}
                                 onClick={onEdit}
                             >
@@ -57,9 +56,8 @@ export const ProfilePageHeader = ({className}: ProfilePageHeaderProps) => {
                         )
                         :
                         (
-                            <div className={styles.edit}>
+                            <HStack gap="8">
                                 <Button
-                                    className={styles.editBtn}
                                     theme={ButtonTheme.WARNING}
                                     onClick={onCancelEdit}
                                 >
@@ -67,16 +65,16 @@ export const ProfilePageHeader = ({className}: ProfilePageHeaderProps) => {
                                 </Button>
 
                                 <Button
-                                    className={styles.saveBtn}
                                     theme={ButtonTheme.OUTLINE}
                                     onClick={onSave}
                                 >
                                     {t("Сохранить")}
-                                </Button></div>
+                                </Button>
+                            </HStack>
                         )
                     }
-                </div>
+                </>
             )}
-        </div>
+        </HStack>
     );
 };

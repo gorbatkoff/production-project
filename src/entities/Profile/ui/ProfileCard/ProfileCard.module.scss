@@ -3,6 +3,11 @@
   border: 2px solid var(--inverted-bg-color);
 }
 
+.input {
+  white-space: nowrap;
+  width: 100%;;
+}
+
 .avatarWrapper {
   min-height: 100px;
 }

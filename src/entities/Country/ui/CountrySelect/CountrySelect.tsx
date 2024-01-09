@@ -37,7 +37,7 @@ export const CountrySelect = memo(({className, value, onChange, readonly}: Coutr
             label={t("Укажите страну")}
             items={options}
             className={className}
-            direction="top"
+            direction="top right"
         />
     )
 

@@ -6,8 +6,7 @@ import {Button} from "../Button/Button";
 import {HStack} from "../Stack";
 
 import styles from "./ListBox.module.scss";
-
-type DropDownDirection = "top" | "bottom";
+import {DropDownDirection} from "shared/types/ui";
 
 export interface ListBoxItem {
   value: string;
@@ -27,12 +26,14 @@ interface ListBoxProps {
 }
 
 const mapDirectionClass:Record<DropDownDirection, string> = {
-    bottom: styles.optionBottom,
-    top: styles.optionTop,
+    "bottom left": styles.optionBottomLeft,
+    "bottom right": styles.optionBottomRight,
+    "top left": styles.optionTopLeft,
+    "top right": styles.optionTopRight,
 }
 
 export const ListBox = (props: ListBoxProps) => {
-    const {onChange, items, value, defaultValue, className, readonly, label, direction = "bottom"} = props;
+    const {onChange, items, value, defaultValue, className, readonly, label, direction = "bottom left"} = props;
 
     const optionsClasses = [mapDirectionClass[direction]];
 

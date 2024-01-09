@@ -33,7 +33,7 @@ export const CurrencySelect = memo(({className, value, onChange, readonly}: Curr
             onChange={onChangeHandler}
             label={t("Укажите валюту")}
             defaultValue={t("Укажите валюту")}
-            direction="top"
+            direction="top right"
         />
     )
 })

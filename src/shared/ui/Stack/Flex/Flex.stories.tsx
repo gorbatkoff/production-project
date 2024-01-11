@@ -4,7 +4,7 @@ import {ComponentMeta, ComponentStory} from "@storybook/react";
 import {Flex} from "./Flex";
 
 export default {
-    title: ".../Flex",
+    title: "shared/Flex",
     component: Flex,
     argTypes: {
         backgroundColor: {control: "color"},

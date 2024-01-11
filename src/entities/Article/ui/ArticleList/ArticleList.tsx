@@ -32,7 +32,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     const isBig = view === ArticleView.LIST;
     const itemsPerRow = isBig ? 1 : 3;
-    const rowCount = isBig ? articles.length : Math.ceil(articles.length / itemsPerRow)
+    const rowCount = isBig ? articles.length : Math.ceil(articles?.length / itemsPerRow)
 
     const rowRenderer = ({index, isScrolling, key, style}:ListRowProps) => {
 

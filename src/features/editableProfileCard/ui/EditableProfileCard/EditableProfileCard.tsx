@@ -21,7 +21,6 @@ import {ProfileCard} from "entities/Profile";
 import {DynamicModuleLoader, ReducersList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import {EditableProfileCardHeader} from "../../ui/EditableProfileCardHeader/EditableProfileCardHeader";
 
-import styles from "./EditableProfileCard.module.scss";
 import {VStack} from "shared/ui/Stack";
 
 interface EditableProfileCardProps {
@@ -94,7 +93,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <VStack gap="8" max className={classNames(styles.EditableProfileCard, {}, [className])}>
+            <VStack gap="8" max className={classNames("", {}, [className])}>
                 <EditableProfileCardHeader />
                 {validateErrors?.length && validateErrors.map((err) => (
                     <Text

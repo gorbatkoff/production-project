@@ -38,7 +38,6 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
     const dispatch = useAppDispatch();
 
-    const data = useSelector(getProfileData);
     const formData = useSelector(getProfileForm);
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
@@ -60,11 +59,11 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     })
 
     const onChangeFirstname = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({first: value || ""}))
+        dispatch(profileActions.updateProfile({first: value ?? ""}))
     }, [dispatch])
 
     const onChangeLastname = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({lastname: value || ""}))
+        dispatch(profileActions.updateProfile({lastname: value ?? ""}))
     }, [dispatch])
 
     const onChangeAge = useCallback((value?: string) => {
